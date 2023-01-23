@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    
+    <% if (flights.length > 0) { %>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">origin</th>
+            <th scope="col">destination</th>
+            <th scope="col">take off at</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          
+            <% flights.forEach( flight => { %> 
+                
+                <tr>
+                  <td><%= flight.origin %></td>
+                  <td><%= flight.destination %></td>
+                  <td><%= flight.takeOff %></td>
+                </tr>
+
+            <% }) %>
+        </tbody>
+      </table>
+      <% } else { %>
+        no flights
+        <% } %>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

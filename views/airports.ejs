@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    
+    <% if (airports.length > 0) { %> 
+    <ul class="list-group list-group-flush">
+
+        <% airports.forEach( airport => { %>
+
+            <li class="list-group-item"> <%= airport.name %> 
+                <details>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <%= airport.short %> 
+                        </li>
+                        <li class="list-group-item">
+                            <%= airport.city %> 
+                        </li>
+                    </ul>
+                </details>
+            </li>
+
+        <% }) %> 
+        
+      </ul>
+      <% } else { %>
+        no airport import
+        <% } %>  
+        <br>
+        <form action="/airports" method="post">
+            <input type="text" class="form-control" name="name" placeholder="airport name">
+            <input type="text" name="short"  class="form-control" placeholder="short name">
+            <input type="text" name="city" class="form-control" placeholder="city"><br>
+            <input type="submit" value="add airport">
+        </form>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
