@@ -11,7 +11,7 @@ const flight = require('./routes/flightRoute')
 const app = express();
 
 
-const mongokey = "mongodb+srv://farzin:bvbvan79@networkNode.feb5xcz.mongodb.net/?retryWrites=true&w=majority";
+const mongokey = "mongodb+srv://<username>:<password>@networkNode.feb5xcz.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(mongokey)
  .then(result => app.listen(3000))
  .catch( err => console.log(err));
